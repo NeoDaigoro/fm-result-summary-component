@@ -10,34 +10,206 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    @font-face {
+      font-family: "HankenGrotesk";
+      src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      /* border: 1px solid red; */
+    }
+
+    body {
+      background-color: white;
+      font-family: "HankenGrotesk", "Verdana", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      margin: auto;
+      max-width: 375px;
+      /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    }
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241,81%,54%));
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      padding: 2rem;
+    }
+
+    .result > h2 {
+      color: lightgray;
+      font-size: 24px;
+    }
+
+    .result-value-container {
+      background: linear-gradient(hsla(256,72%,46%,1), hsla(241,72%,46%,0));
+      border-radius: 100%;
+      width: 6rem;
+      margin: 1.5rem 0 1.5rem 0;
+      padding: 2rem;
+      text-align: center;
+      /* max-width: max-content; */
+    }
+
+    .score {
+      color: hsl(221, 100%, 96%);
+      font-weight: 800;
+      font-size: 64px;
+    }
+
+    .of-hundred {
+      color: darkgray;
+      font-weight: 700;
+    }
+
+    .result-text {
+      color: hsl(221, 100%, 96%);
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .result-desc {
+      color: lightgray;
+      padding: 1rem 0;
+      font-weight: 500;
+    }
+
+    .summary {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .summary > div {
+      margin: 1.5rem 0;
+    }
+
+    .reaction, .memory, .verbal, .visual {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 100%;
+      color: darkgray
+    }
+
+    .reaction {
+      background: hsla(0, 100%, 67%, 0.02);
+      padding: 0.5rem 0;
+    }
+
+    .reaction > p:first-child {
+      color: hsla(0, 100%, 67%);
+      padding: 0 0.5rem;
+    }
+
+    .memory {
+      background: hsl(39, 100%, 56%, 0.02);
+      padding: 0.5rem 0;
+    }
+
+    .memory > p:first-child {
+      color: hsl(39, 100%, 56%);
+      padding: 0 0.5rem;
+    }
+
+    .verbal {
+      background: hsl(166, 100%, 37%, 0.02);
+      padding: 0.5rem 0;
+    }
+
+    .verbal > p:first-child {
+      color: hsl(166, 100%, 37%);
+      padding: 0 0.5rem;
+    }
+
+    .visual {
+      background: hsl(234, 85%, 45%, 0.02);
+      padding: 0.5rem 0;
+    }
+
+    .visual > p:first-child {
+      color: hsl(234, 85%, 45%);
+      padding: 0 0.5rem;
+    }
+
+    .summary-score {
+      font-weight: 800;
+    }
+
+    .summary-header {
+      color: hsl(224, 30%, 27%);
+      font-size: 24px;
+    }
+
+    .continue {
+      background-color: hsl(224, 30%, 27%);
+      color: hsl(0, 0%, 100%);
+      padding: 1rem;
+      border-radius: 30px;
+    }
+
+    @media (min-width: 376px) {
+      .container {
+        margin: auto;
+        max-width: 600px;
+        display: flex;
+      }
+
+      .result {
+        width: 60%;
+      }
+
+      .summary {
+        width: 60%;
+      }
+    }
+
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
 <body>
 
-  Your Result
-  76
-  of 100
-
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
-
-  Reaction
-  80 / 100
-
-  Memory
-  92 / 100
-
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
+  <div class="container">
+    <div class="result">
+      <h2 class="result-header">Your Result</h2>
+      <div class="result-value-container">
+        <p class="score">76</p>
+        <p class="of-hundred">of 100</p>
+      </div>
+      <p class="result-text">Great</p>
+      <p class="result-desc">You scored higher than 65% of the people who have taken these tests.</p>
+    </div>
+    
+    <div class="summary">
+      <h2 class="summary-header">Summary</h2>
+      <div class="reaction">
+        <p>Reaction</p>
+        <p><span class="summary-score">80</span> / 100</p>
+      </div>
+      <div class="memory">
+        <p>Memory</p>
+        <p><span class="summary-score">92</span> / 100</p>
+      </div>
+      <div class="verbal">
+        <p>Verbal</p>
+        <p><span class="summary-score">61</span> / 100</p>
+      </div>
+      <div class="visual">
+        <p>Visual</p>
+        <p><span class="summary-score">72</span> / 100</p>
+      </div>
+      <button class="continue">Continue</button>
+    </div>
+  </div>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
